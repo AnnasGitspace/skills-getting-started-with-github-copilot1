@@ -40,8 +40,9 @@ def test_signup_registers_new_participant():
     email = "new.student@mergington.edu"
 
     # Act
+    from urllib.parse import quote
     response = client.post(
-        f"/activities/{activity_name}/signup",
+        f"/activities/{quote(activity_name, safe='')}/signup",
         params={"email": email},
     )
 
